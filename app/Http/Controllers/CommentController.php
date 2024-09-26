@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Human;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -36,7 +37,7 @@ class CommentController extends Controller
     
       $human->comments()->create([
         'comment' => $request->comment,
-        'user_id' => auth()->id(),
+        'user_id' => Auth::id()
       ]);
     
       return redirect()->route('humans.show', $human);
