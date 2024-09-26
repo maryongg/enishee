@@ -125,8 +125,11 @@ class HumanController extends Controller
 
     public function trashed()
 {
-    $trashedHumans = Human::ownedByUser(Auth::id())->onlyTrashed()->get();
-    return view('humans.trashed', compact('trashedHumans'));
+    $trashedHumans = Human::ownedByUser(Auth::id())
+    ->onlyTrashed()
+    ->orderBy('deleted_at', 'asc')
+    ->get();
+return view('humans.trashed', compact('trashedHumans'));
 }
 
 
