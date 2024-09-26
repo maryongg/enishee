@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Human;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HumanController extends Controller
 {
@@ -13,7 +14,7 @@ class HumanController extends Controller
     public function index()
     {
         //
-        $humans = Human::with('user')->latest()->get();
+        $humans = Human::ownedByUser(Auth::id())->with('user')->latest()->get();
         return view('humans.index', compact('humans'));
 
     }
@@ -41,11 +42,18 @@ class HumanController extends Controller
             'income' => 'nullable|max:255',
             'meet' => 'nullable|max:255', 
             'cost' => 'nullable|max:255', 
-            'img' => 'nullable|max:255',   // 任意のフィールドの場合
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
           ]);
-      
-          // リクエストから tweet, name, description フィールドを取得して保存
-          $request->user()->humans()->create($request->only('name', 'age', 'job', 'income', 'meet', 'cost', 'img'));
+    
+          $data = $request->only('name', 'age', 'job', 'income', 'meet', 'cost');
+
+          if ($request->hasFile('img')) {
+              $imageName = time().'.'.$request->img->extension();
+              $request->img->move(public_path('images'), $imageName);
+              $data['img'] = 'images/' . $imageName;
+          }
+          $request->user()->humans()->create($data);
+
       
           return redirect()->route('humans.index');
     }
@@ -81,9 +89,27 @@ class HumanController extends Controller
             'income' => 'nullable|max:255',
             'meet' => 'nullable|max:255', 
             'cost' => 'nullable|max:255', 
-            'img' => 'nullable|max:255',   // 任意のフィールドの場合
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',   // 任意のフィールドの場合
           ]);
-          $human->update($request->only('name', 'age', 'job', 'income', 'meet', 'cost', 'img'));
+          $data = $request->only('name', 'age', 'job', 'income', 'meet', 'cost');
+
+          if ($request->hasFile('img')) {
+              // 古い画像を削除
+              if ($human->img) {
+                  $oldImagePath = public_path($human->img);
+                  if (file_exists($oldImagePath)) {
+                      unlink($oldImagePath);
+                  }
+              }
+      
+              // 新しい画像をアップロード
+              $imageName = time().'.'.$request->img->extension();
+              $request->img->move(public_path('images'), $imageName);
+              $data['img'] = 'images/' . $imageName;
+          }
+      
+          $human->update($data);
+      
           return redirect()->route('humans.show', $human); //
     }
 
@@ -99,7 +125,7 @@ class HumanController extends Controller
 
     public function trashed()
 {
-   $trashedHumans = Human::onlyTrashed()->get();
+    $trashedHumans = Human::ownedByUser(Auth::id())->onlyTrashed()->get();
     return view('humans.trashed', compact('trashedHumans'));
 }
 

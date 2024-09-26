@@ -15,8 +15,18 @@
     @csrf
     @method('PUT')
     <div class="sm:col-span-2">
-        <label for="img" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">写真</label>
-        <input type="file" name="img" class=" w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"></input>
+        <label for="img" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">現在の画像</label>
+        @if($human->img)
+        <div class="mb-2">
+            <img src="{{ asset($human->img) }}" alt="現在の画像" class="max-w-xs h-auto">
+          
+        </div>
+        @endif
+    
+    <input type="file" name="img" id="img" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring">
+    <p class="mt-1 text-sm text-gray-500">新しい画像をアップロードする場合は選択してください。</p>
+
+
       </div>
 
     <div class="sm:col-span-2">

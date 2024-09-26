@@ -10,7 +10,7 @@ class Human extends Model
 {
     use HasFactory,SoftDeletes;
 
-  protected $fillable = ['name','age', 'job', 'income', 'meet', 'cost', 'img'];
+  protected $fillable = ['name','age', 'job', 'income', 'meet', 'cost', 'img', 'user_id'];
 
   public function user()
   {
@@ -21,4 +21,9 @@ class Human extends Model
   {
     return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
   }
+  public function scopeOwnedByUser($query, $userId)
+  {
+      return $query->where('user_id', $userId);
+  }
+
 }
