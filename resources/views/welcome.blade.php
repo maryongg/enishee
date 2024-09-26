@@ -3,14 +3,14 @@
          
           <section class="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
                  <!-- image - start -->
-                 <div class="h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-auto xl:w-5/12">
-                    <img src="https://images.unsplash.com/photo-1618004912476-29818d81ae2e?auto=format&q=75&fit=crop&w=1000" loading="lazy" alt="Photo by Fakurian Design" class="h-full w-full object-cover object-center" />
+                 <div class="h-48 overflow-hidden rounded-lg   lg:h-auto xl:w-5/12">
+                 <img src="{{ asset('images/enishee_black_logo.png') }}" alt="enishee" class="h-full w-full object-cover object-center" >   
                   </div>
                   <!-- image - end -->
             <!-- content - start -->
             <div class="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24">
       
-              <h1 class="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">Enishee</h1>
+              <h1 class="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">良縁祈願！</h1>
       
               <p class="mb-8 leading-relaxed text-gray-500 md:mb-12 lg:w-4/5 xl:text-lg">婚活で出会ったお相手を管理・整理できるお助けアプリです。</p>
       
