@@ -3,7 +3,7 @@
  <div class="mb-10 md:mb-16">
             <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">進行中一覧</h2>
       
-            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">お見切りチャーンス！</p>
+            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">現在の同時進行のお相手は、以下の方々です！</p>
           </div>
           <!-- text - end -->
       
@@ -21,8 +21,8 @@
               </div>
       
               <div>
-                <div class="text-center font-bold text-indigo-500 md:text-lg">{{ $human->name }}</div>
-                <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">{{ $human->age }}</p>
+                <div class="text-center font-bold text-indigo-500 md:text-lg">{{ $human->name ?: '名無しさん' }}</div>
+                <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">{{ $human->age }}歳</p>
       
 
               </div>

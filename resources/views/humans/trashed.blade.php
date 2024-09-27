@@ -21,13 +21,15 @@
               </div>
       
               <div>
-                <div class="text-center font-bold text-indigo-500 md:text-lg">{{ $human->name }}</div>
+                <div class="text-center font-bold text-indigo-500 md:text-lg h-6">
+                  {{ $human->name ?: '名無しさん' }}
+                </div>
                 <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">{{ $human->age }}歳</p>
-                <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">お見切り日{{ $human->deleted_at->format('Y-m-d H:i:s') }}</p>
+                <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">お見切り日時<br>{{ $human->deleted_at->format('Y-m-d H:i') }}</p>
                 <form action="{{ route('humans.restore', $human->id) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <button type="submit">復活！</button>
+                            <button type="submit" class="inline-block rounded-lg bg-red-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-red-300 transition duration-100 hover:bg-red-600 focus-visible:ring active:bg-slate-700 md:text-base">復活！</button>
                         </form>
 
               </div>

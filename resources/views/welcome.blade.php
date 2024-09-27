@@ -1,7 +1,8 @@
 @include('layouts.header')            
 
-         
-          <section class="gap-6 sm:gap-10 md:gap-16 lg:flex-row">
+<div class="flex flex-col min-h-screen">
+    <main class="flex-grow">
+        <section class="gap-6 sm:gap-10 md:gap-16 lg:flex-row">
                  <!-- image - start -->
                  <div class="overflow-hidden rounded-lg">
                  <img src="{{ asset('images/enishee_black_logo.png') }}" alt="enishee" class="h-full w-full object-cover object-center" >   
@@ -34,4 +35,8 @@
       
        
           </section>
-          @include('layouts.footer')
+        </main>
+    </div>
+
+    @include('layouts.footer')
+</div>
