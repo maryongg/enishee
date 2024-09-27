@@ -16,42 +16,42 @@
 
     <div class="sm:col-span-2 text-center">
         <label for="img" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">写真</label>
-        <input type="file" name="img" class=" w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring"></input>
+        <input type="file" name="img" class=" w-full rounded-full border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring"></input>
       </div>
 
     <div class="sm:col-span-2 text-center">
         <label id="name" for="name" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">名前</label>
-        <input type="text" name="name" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring" />
+        <input type="text" name="name" class="w-full rounded-full border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring" />
       </div>
 
      
       <div class="sm:col-span-2 text-center">
         <label for="age" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">年齢</label>
-        <input name="age" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring" />
+        <input name="age" class="w-full rounded-full border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring" />
       </div>
 
       <div class="sm:col-span-2 text-center">
         <label for="job" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">職業</label>
-        <input name="job" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring" />
+        <input name="job" class="w-full rounded-full border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring" />
       </div>
 
       <div class="sm:col-span-2 text-center">
         <label for="income" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">年収</label>
-        <input name="income" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring" />
+        <input name="income" class="w-full rounded-full border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring" />
       </div>
 
       <div class="sm:col-span-2 text-center">
         <label for="meet" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">出会った手段・場所</label>
-        <input name="meet" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring">
+        <input name="meet" class="w-full rounded-full border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring">
       </div>
 
       <div class="sm:col-span-2 text-center">
         <label for="cost" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">デート費用</label>
-        <input name="cost" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring">
+        <input name="cost" class="w-full rounded-full border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-slate-300 transition duration-100 focus:ring">
       </div>
 
       <div class="flex items-center justify-between sm:col-span-2">
-        <button class="inline-block m-auto mt-6 rounded-lg bg-slate-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-slate-300 transition duration-100 hover:bg-slate-600 focus-visible:ring active:bg-slate-700 md:text-base">
+        <button class="inline-block m-auto mt-6 rounded-full  bg-slate-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-slate-300 transition duration-100 hover:bg-slate-600 focus-visible:ring active:bg-slate-700 md:text-base">
         <svg xmlns="http://www.w3.org/2000/svg" width="24 ml-12" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-plus"><path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="M19 16v6"/><path d="M22 19h-6"/></svg>
         登録！</button>
       </div>
