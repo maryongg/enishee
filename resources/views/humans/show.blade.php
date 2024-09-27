@@ -44,25 +44,26 @@
       </table>
       @if (auth()->id() == $human->user_id)
           <div class="flex mt-4">
-            <a href="{{ route('humans.edit', $human) }}" class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">編集</a>
+            <a href="{{ route('humans.edit', $human) }}" class=" m-auto inline-block rounded-lg bg-slate-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-slate-300 transition duration-100 hover:bg-slate-600 focus-visible:ring active:bg-slate-700 md:text-base">編集</a>
             <form action="{{ route('humans.destroy', $human) }}" method="POST" onsubmit="return confirm('本当にお見切りしますか？');">
               @csrf
               @method('DELETE')
-              <button type="submit" class="inline-block rounded-lg bg-red-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-red-300 transition duration-100 hover:bg-red-600 focus-visible:ring active:bg-indigo-700 md:text-base">本当にお見切りする！</button>
+              <button type="submit" class="inline-block rounded-lg bg-red-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-red-300 transition duration-100 hover:bg-red-600 focus-visible:ring active:bg-slate-700 md:text-base">本当にお見切りする！</button>
             </form>
           </div>
           @endif
 
-      <p class="mt-6 text-gray-500 sm:text-lg md:mt-8">投稿者: {{ $human->user->name }}</p>
-      <p class="text-gray-500 sm:text-lg">作成日時: {{ $human->created_at->format('Y-m-d') }}</p>
-      <p class="text-gray-500 sm:text-lg">更新日時: {{ $human->updated_at->format('Y-m-d') }}</p>
+      <p class="text-center mt-6 text-gray-500 sm:text-lg md:mt-8">投稿者: {{ $human->user->name }}</p>
+      <p class="text-center text-gray-500 sm:text-lg">作成日: {{ $human->created_at->format('Y-m-d') }}</p>
+      <p class="text-center text-gray-500 sm:text-lg">更新日: {{ $human->updated_at->format('Y-m-d') }}</p>
 
   </div>
-  <div class="mt-4">
-            <p class="text-gray-600 dark:text-gray-400 ml-4">comment {{ $human->comments->count() }}</p>
-            <a href="{{ route('humans.comments.create', $human) }}" class="text-blue-500 hover:text-blue-700 mr-2">コメントする</a>
+  <div class="mt-4 text-center">
+            <a href="{{ route('humans.comments.create', $human) }}" class="m-auto inline-block rounded-lg bg-slate-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-slate-300 transition duration-100 hover:bg-slate-600 focus-visible:ring active:bg-slate-700 md:text-base">コメントする</a>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">コメント {{ $human->comments->count() }}件</p>
+            
           </div>
-          <div class="mt-4">
+          <div class="mt-4 text-center">
             @foreach ($human->comments as $comment)
             <a href="{{ route('humans.comments.show', [$human, $comment]) }}">
             <p>{{ $comment->comment }} <span class="text-gray-600 dark:text-gray-400 text-sm">{{ $comment->user->name }} {{ $comment->created_at->format('Y-m-d H:i') }}</span></p>
