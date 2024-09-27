@@ -1,8 +1,8 @@
 </div>
       </div>
-      <div class="sticky bottom-0 bg-white">
+      <div class="fixed right-0 left-0 bottom-0 bg-white max-w-screen-md m-auto">
         <!-- nav - start -->
-        <nav class="sticky bottom-0 mx-auto flex w-full justify-between gap-20 border-t bg-white px-10 pt-5 pb-3 text-xs  sm:rounded-t-xl sm:border-l sm:border-r sm:text-sm">
+        <nav class="flex  justify-between gap-20 border-t bg-white px-10 pt-5 pb-3 text-xs  sm:rounded-t-xl sm:border-l sm:border-r sm:text-sm">
           <!-- <span class="flex flex-col items-center gap-1 text-indigo-500"> -->
           <a href="{{ url('/') }}" class="flex flex-col items-center gap-1 text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
